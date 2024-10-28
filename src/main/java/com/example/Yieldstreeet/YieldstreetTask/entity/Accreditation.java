@@ -18,6 +18,8 @@ public class Accreditation {
     @Pattern(regexp = "BY_INCOME|BY_NET_WORTH", message = "Invalid accreditation type")
     private String accreditationType;
 
+    @NotNull
+    @Pattern(regexp = "PENDING|CONFIRMED|EXPIRED|FAILED", message = "Invalid accreditation status")
     private String status = "PENDING";
     private LocalDateTime lastUpdated;
 
