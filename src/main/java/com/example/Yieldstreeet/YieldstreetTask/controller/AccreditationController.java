@@ -1,14 +1,19 @@
 package com.example.Yieldstreeet.YieldstreetTask.controller;
 
 import com.example.Yieldstreeet.YieldstreetTask.entity.Accreditation;
+import com.example.Yieldstreeet.YieldstreetTask.entity.User;
 import com.example.Yieldstreeet.YieldstreetTask.entity.Document;
 import com.example.Yieldstreeet.YieldstreetTask.service.AccreditationService;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
@@ -35,5 +40,22 @@ public class AccreditationController {
         Accreditation accreditation = accreditationService.updateAccreditationStatus(accreditationId, outcome);
 
         return Map.of("accreditation_id", accreditation.getAccreditationId().toString());
+    }
+
+    @GetMapping("/{userId}/accreditation")
+    public Map<String, Object> getAccreditation(@PathVariable Long userId) {
+
+        List<Accreditation> accreditations = accreditationService.getAccreditationsByUserId(userId);
+
+        return Map.of(
+                "user_id", userId,
+                "accreditation_statuses", accreditations.stream().collect(Collectors.toMap(
+                        accreditation -> accreditation.getAccreditationId().toString(),
+                        accreditation -> Map.of(
+                                "accreditation_type", accreditation.getAccreditationType(),
+                                "status", accreditation.getStatus()
+                        )
+                ))
+        );
     }
 }
