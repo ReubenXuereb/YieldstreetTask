@@ -5,6 +5,12 @@ public class Document {
     private String mimeType;
     private String content;
 
+    public Document(String name, String mimeType, String content) {
+        this.name = name;
+        this.mimeType = mimeType;
+        this.content = content;
+    }
+
     public String getName() {
         return name;
     }

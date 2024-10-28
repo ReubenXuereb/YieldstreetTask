@@ -3,7 +3,6 @@ package com.example.Yieldstreeet.YieldstreetTask.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

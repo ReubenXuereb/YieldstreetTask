@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface AccreditationRepository extends JpaRepository<Accreditation, UUID> {
-    List<Accreditation> findByUserId(String userId);
+    List<Accreditation> findByUserUserId(Long userId);
     List<Accreditation> findByStatusAndLastUpdatedBefore(String status, LocalDateTime expiryDate);
 }
