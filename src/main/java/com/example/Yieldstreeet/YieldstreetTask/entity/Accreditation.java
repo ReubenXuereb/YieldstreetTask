@@ -43,6 +43,12 @@ public class Accreditation {
         this.lastUpdated = LocalDateTime.now();
     }
 
+    @PrePersist
+    @PreUpdate
+    public void updateTimestamp() {
+        lastUpdated = LocalDateTime.now();
+    }
+
     public UUID getAccreditationId() {
         return accreditationId;
     }
