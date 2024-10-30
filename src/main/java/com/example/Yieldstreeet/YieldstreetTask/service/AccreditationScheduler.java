@@ -18,7 +18,7 @@ public class AccreditationScheduler {
     private AccreditationRepository accreditationRepository;
 
 
-    @Scheduled(cron = "0 0 6 * * ?") //This cronjob will run every day at 06:00AM
+    @Scheduled(cron = "0 0 6 * * ?") //This cronjob will run every day at 06:00AM (Comment the whole line to test the cronjob to run immediately)
     @Transactional
     public void expiredAccreditations() {
         LocalDateTime expiry = LocalDateTime.now().minusDays(30);
