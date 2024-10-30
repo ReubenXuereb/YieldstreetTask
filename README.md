@@ -39,7 +39,7 @@ To implement an audit log for historical accreditation status updates, I would c
        private LocalDateTime timestamp;
    }
 An audit log is essential for tracking and maintaining a clear history of all accreditation status changes, providing full traceability of user verification processes. 
-By capturing every update—when statuses move from “PENDING” to “CONFIRMED” to “EXPIRED” or “FAILED”—the audit log serves as a chronological record that helps ensure transparency and accountability. 
+By capturing every update, when statuses move from “PENDING” to “CONFIRMED” to “EXPIRED” or “FAILED”, the audit log serves as a chronological record that helps ensure transparency and accountability. 
 This history is valuable not only for compliance with regulatory requirements but also for internal reviews, allowing administrators to track patterns, identify irregularities, or troubleshoot any issues.
 
 ## Scaling the Service
