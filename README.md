@@ -47,7 +47,7 @@ In addition to meeting regulatory requirements, this history is useful for inter
 As the number of users grows and the service's speed suffers, there are a number of ways to make the application bigger:
 
 - Load Balancing: Set up multiple instances of the service and use a load balancer (example Nginx or AWS ELB) to send requests to each server as they come in. This can improve throughput and reduce response times.
-- Asynchronous Processing: If necessary, use message queues (such as RabbitMQ or Kafka) to shift lengthy processes to background jobs in order to increase the API's responsiveness.
+- Asynchronous Processing: To improve the responsiveness of the API, message queues (like RabbitMQ or Kafka) can be used to move time-consuming operations to background jobs when needed.
 - Horizontal Scaling: The use of container orchestration technologies such as Kubernetes to control the deployment and scaling of application instances.
 
 # Accreditation Service
