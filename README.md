@@ -1,19 +1,19 @@
 # Requirements Task 7
 ## Overview
 
-This project implements a RESTful service for managing users' accreditation statuses using the MVC (Model-View-Controller) architectural pattern. The main components of the architecture are as follows:
+For this project I implemented a RESTful service using the MVC (Model-View-Controller) architectural pattern. 
 
-1. **Model**: Represents the data structure of the application. In this project, the `Accreditation` and `User` entities serve as the models, encapsulating the properties and behaviors associated with the accreditation statuses and user information.
+1. **Model**: Shows the application's data structure. The `Accreditation` and `User` entities are used as models in this project, containing the attributes and actions related to user data and accreditation statuses.
 
-2. **View**: In a RESTful service context, the view is represented by the JSON responses sent to the clients. The API endpoints return data in a structured format (e.g., JSON) that can be consumed by client applications, such as web or mobile apps.
+2. **View**: The JSON replies that are given to the clients in a RESTful service context serve as the view. Client programs, such web or mobile apps, can use the structured data returned by the API endpoints (like JSON).
 
-3. **Controller**: Handles incoming HTTP requests and maps them to the appropriate service methods. The `AccreditationController` processes requests for creating, updating, and retrieving accreditation statuses, coordinating the flow of data between the model and the service layers.
+3. **Controller**: Incoming HTTP requests are handled by the Controller, which also assigns them to the relevant service methods. Coordinating the data flow between the model and the service levels, the `AccreditationController` handles requests for creating, changing, and retrieving accreditation statuses.
 
-4. **Service**: Contains the business logic of the application. The `AccreditationService` manages the validation and processing of accreditation requests, ensuring the integrity of the application's operations.
+4. **Service**: Consists of the application's business logic. The integrity of the application's operations is maintained by the `AccreditationService`, which controls the processing of accreditation requests.
 
-5. **Repository**: Interacts with the database to perform CRUD operations on the data models. Both `AccreditationRepository` and `UserRepository` use Spring Data JPA to provide a convenient way to access and manipulate the database.
+5. **Repository**: Performs CRUD actions on the data models by interacting with the database. Spring Data JPA is used by both `AccreditationRepository` and `UserRepository` to offer a practical means of accessing and modifying the database.
 
-This MVC structure separates concerns, making the application more modular, maintainable, and testable. Each component has a distinct responsibility, allowing for clearer organization of code and better collaboration among developers.
+This MVC framework improves the application's modularity, maintainability, and testability because each component has a specific role, the code can be organised more clearly and developers can work together more effectively.
 
 ---
 
@@ -38,17 +38,17 @@ To implement an audit log for historical accreditation status updates, I would c
        private String newStatus;
        private LocalDateTime timestamp;
    }
-An audit log is essential for tracking and maintaining a clear history of all accreditation status changes, providing full traceability of user verification processes. 
-By capturing every update—when statuses move from “PENDING” to “CONFIRMED” to “EXPIRED” or “FAILED”—the audit log serves as a chronological record that helps ensure transparency and accountability. 
-This history is valuable not only for compliance with regulatory requirements but also for internal reviews, allowing administrators to track patterns, identify irregularities, or troubleshoot any issues.
+An audit log is needed to keep track of and keep a clear record of all changes to an accreditation state. This makes sure that all user verification processes can be fully tracked.
+By writing down every change, like when a state goes from "PENDING" to "CONFIRMED" to "EXPIRED" or "FAILED," the audit log keeps a record of what happened and when. This helps make sure that everyone is responsible and open. This history is valuable not only for compliance with regulatory requirements but also for internal reviews, allowing administrators to track patterns, identify irregularities, or troubleshoot any issues.
+In addition to meeting regulatory requirements, this history is useful for internal reviews because it helps administrators spot trends, find problems, or figure out what's wrong.
 
 ## Scaling the Service
 
-As traffic increases and the service faces performance degradation, several strategies can be employed to scale the application:
+As the number of users grows and the service's speed suffers, there are a number of ways to make the application bigger:
 
-- Load Balancing: Deploy multiple instances of the service and use a load balancer (e.g., Nginx, AWS ELB) to distribute incoming requests among these instances. This can improve throughput and reduce response times.
-- Asynchronous Processing: If applicable, move long-running processes to background tasks using message queues (e.g., RabbitMQ, Kafka) to improve the responsiveness of the API.
-- Horizontal Scaling: Consider using container orchestration platforms like Kubernetes to manage the deployment and scaling of application instances dynamically based on traffic.
+- Load Balancing: Set up multiple instances of the service and use a load balancer (example Nginx or AWS ELB) to send requests to each server as they come in. This can improve throughput and reduce response times.
+- Asynchronous Processing: If necessary, use message queues (such as RabbitMQ or Kafka) to shift lengthy processes to background jobs in order to increase the API's responsiveness.
+- Horizontal Scaling: The use of container orchestration technologies such as Kubernetes to control the deployment and scaling of application instances.
 
 # Accreditation Service
 
